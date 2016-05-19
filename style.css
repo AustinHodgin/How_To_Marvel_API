@@ -1,20 +1,59 @@
-.image{
-  position: relative;;
-  width: 100%;
+.image {
+    position: relative;
+    ;
+    width: 100%;
 }
-
-h2{
-  position: absolute;
-  top: 200px;
-  left: 0;
-  width: 100%;
-
+h2 {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
 }
-h2 span{
-  color: white;
-  font: bold, 24px/45px Helvetica, Sans-Serif;
-  letter-spacing: -1px;
-  background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.7);
-  padding: 10px;
+h2 span {
+    color: white;
+    font: bold, 24px/45px Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+span.spacer {
+    padding: 0 5px;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+li {
+    float: left;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #111;
+}
+section.Body h1 {
+    font-size: 40px
+}
+p {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+}
+img {
+    width: 40%;
+    hight: auto;
+}
+.APICall {
+    background-color: rgb(192, 192, 192);
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-width: 3px;
 }

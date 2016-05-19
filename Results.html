@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Marvel API How To</title>
+</head>
+
+<body>
+
+
+    <section class="header">
+        <div class="image">
+            <img class="header_image" src="Images/Comic HeaderV4.jpg" alt="">
+            <h2> <span><b>Marvel API How To Guide</b> </br> </br> <span class = 'spacer'> <small>   by Austin Hodgin</small></span></span></h2>
+        </div>
+        <ul>
+            <li> <a href="Index.html"> Introduction </a> </li>
+            <li> <a href="API_KEYS.html">API Keys</a> </li>
+            <li> <a href="Results.html">Results</a></li>
+            <li><a href="Images.html">Images</a></li>
+        </ul>
+    </section>
+    <section class="body">
+        <h1> How To Make API Calls</h1>
+        <p>
+            You are probaby wondering what this API does. The Marvel API will allow you to pull information from the marval servers about all kinds of diffrent charaters, story archs, events, comic covers, and a bunch more information. To get his information you
+            will need to make a call to
+            </br>
+            </br>
+            http://gateway.marvel.com/
+            </br>
+        </p>
+        If you would like to see what to add to the end of http://gateway.marvel.com/ you will need to go <a href=" http://developer.marvel.com/documentation/apiresults"> here</a>. I will just show you a few of them. Below is an example of a call you
+        would make if you are looking for a charater:
+        </br>
+        </br>
+        <div class="APICall">
+            http://gateway.marvel.com:80/v1/public/characters?name=NAMEOFHERO&apikey=YOURAPIKEY
+        </div>
+        </br>
+        Lets break this down a little bit.  The first part:
+        </br>
+        <b>http://gateway.marvel.com/</b>
+        </br>
+        Is the base url for the server. This is where the information is stored.
+        </br>
+        </br>
+        <b>/v1/public/characters</b>
+        </br>
+        Is telling the server that you are looking for a characther name.
+        </br>
+        </br>
+        <b>?name=NAMEOFHERO</b>
+        </br>
+        Is the name of the hero that you are looking for
+        </br>
+        </br>
+        <b>apikey=YOURAPIKEY</b>
+        </br>
+        This is your API Key that you got from the last <section>
+        </br>
+        </br>
+
+        If you would like to see how more of these calls are made you are can
+        test all the diffrent calls <a href=" http://developer.marvel.com/docs#!/public/getCreatorCollection_get_0">here</a>
+        in the documntation.
+
+        <h1>What Do You Get When You Use This Call</h1>
+        <p>
+          When you call this using javascript or handelbars you will get a JSON file back
+          with a lot of text. This is all the information about the charater, event, cover, or what ever you requested from the
+          server. In this example I will look for the charater Deadpool. This is the call that I used:
+        </br>
+        </br>
+        <b>http://gateway.marvel.com:80/v1/public/characters?name=Deadpool&apikey=MYAPIKEY</b>
+        </br>
+        You will just have to replace the MYAPIKEY with your API Key and it should work. The file that you get back will
+        look something like this:
+
+
+          <div class = " JSON_File">
+            <xmp>
+              "code": 200,
+              "status": "Ok",
+              "copyright": "© 2016 MARVEL",
+              "attributionText": "Data provided by Marvel. © 2016 MARVEL",
+              "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2016 MARVEL</a>",
+              "etag": "43aaaf65fa5b8cfca38872e57cc3af26ce2222e4",
+              "data": {
+                "offset": 0,
+                "limit": 20,
+                "total": 1,
+                "count": 1,
+                "results": [
+                  {
+                    "id": 1009268,
+                    "name": "Deadpool",
+                    "description": "",
+                    "modified": "2013-10-18T17:33:26-0400",
+                    "thumbnail": {
+                      "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/90/5261a86cacb99",
+                      "extension": "jpg"
+                    },
+                    "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009268",
+                    "comics": {
+                      "available": 416,
+                      "collectionURI": "http://gateway.marvel.com/v1/public/characters/1009268/comics",
+                      "items": [
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/41112",
+                          "name": "5 Ronin (Hardcover)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/36160",
+                          "name": "5 Ronin (2010) #5"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/38751",
+                          "name": "5 Ronin (2010) #5 (MCGUINNESS COVER)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/394",
+                          "name": "Agent X (2002) #15"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/24418",
+                          "name": "Amazing Spider-Man (1999) #611"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/31556",
+                          "name": "Amazing Spider-Man (1999) #620 (DEADPOOL VARIANT)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/31560",
+                          "name": "Avengers: The Initiative (2007) #33 (DEADPOOL VARIANT)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/41349",
+                          "name": "Battle Scars (2011) #3"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/41348",
+                          "name": "Battle Scars (2011) #4"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/23971",
+                          "name": "Cable (2008) #13"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/23972",
+                          "name": "Cable (2008) #13 (OLIVETTI (MW, 50/50 COVER))"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/24171",
+                          "name": "Cable (2008) #14"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/24172",
+                          "name": "Cable (2008) #14 (OLIVETTI MW, 50/50 COVER)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/24631",
+                          "name": "Cable (2008) #15"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/24632",
+                          "name": "Cable (2008) #15 (OLIVETTI (MW, 50/50 COVER))"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/430",
+                          "name": "Cable & Deadpool (2004) #1"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/479",
+                          "name": "Cable & Deadpool (2004) #2"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/644",
+                          "name": "Cable & Deadpool (2004) #3"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/706",
+                          "name": "Cable & Deadpool (2004) #4"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/comics/548",
+                          "name": "Cable & Deadpool (2004) #5"
+                        }
+                      ],
+                      "returned": 20
+                    },
+                    "series": {
+                      "available": 100,
+                      "collectionURI": "http://gateway.marvel.com/v1/public/characters/1009268/series",
+                      "items": [
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/15276",
+                          "name": "5 Ronin (2011)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/12429",
+                          "name": "5 Ronin (2010)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/459",
+                          "name": "Agent X (2002 - 2004)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/454",
+                          "name": "Amazing Spider-Man (1999 - 2013)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/1945",
+                          "name": "Avengers: The Initiative (2007 - 2010)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/15370",
+                          "name": "Battle Scars (2011 - 2012)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/4002",
+                          "name": "Cable (2008 - 2010)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/693",
+                          "name": "Cable & Deadpool (2004 - 2008)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/13886",
+                          "name": "Cable & Deadpool MGC (2011)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/1209",
+                          "name": "Cable & Deadpool Vol. 1: If Looks Could Kill (2007)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/1338",
+                          "name": "Cable & Deadpool Vol. 2: The Burnt Offering (2007)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/1488",
+                          "name": "Cable & Deadpool Vol. 3: The Human Race (2005)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/1578",
+                          "name": "Cable & Deadpool Vol. 4: Bosom Buddies (2006)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/1676",
+                          "name": "Cable & Deadpool Vol. 5: Living Legends (2006)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/1960",
+                          "name": "Cable & Deadpool Vol. 6: Paved with Good Intentions (2007)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/2710",
+                          "name": "Cable & Deadpool Vol. 7: Separation Anxiety (2007)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/1487",
+                          "name": "Cable/Deadpool Vol. 3: The Human Race (2005)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/1577",
+                          "name": "Cable/Deadpool Vol. 4: Bosom Buddies (2006)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/10105",
+                          "name": "Civil War: X-Men (2011)"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/series/1962",
+                          "name": "Civil War: X-Men Universe (2007)"
+                        }
+                      ],
+                      "returned": 20
+                    },
+                    "stories": {
+                      "available": 595,
+                      "collectionURI": "http://gateway.marvel.com/v1/public/characters/1009268/stories",
+                      "items": [
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/1135",
+                          "name": "Cover #1135",
+                          "type": "cover"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/1619",
+                          "name": "Interior #1619",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2464",
+                          "name": "3 of 6 - The Passion of the Cable",
+                          "type": "cover"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2465",
+                          "name": "3 of 6 - The Passion of the Cable",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2467",
+                          "name": "Interior #2467",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2469",
+                          "name": "Interior #2469",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2471",
+                          "name": "Interior #2471",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2473",
+                          "name": "Interior #2473",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2475",
+                          "name": "Interior #2475",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2477",
+                          "name": "Interior #2477",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2479",
+                          "name": "Interior #2479",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2481",
+                          "name": "4 of 6 - The Passion of the Cable",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2483",
+                          "name": "5 of 6 - The Passion of the Cable",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2484",
+                          "name": "2 of 2 - Thirty Pieces",
+                          "type": "cover"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2485",
+                          "name": "2 of 2 - Thirty Pieces",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2487",
+                          "name": "1 of 2 - A Murder in Paradise",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2488",
+                          "name": "2 of 2 - A Murder in Paradise",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2489",
+                          "name": "1 of 4 - Enema of the State",
+                          "type": "cover"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2490",
+                          "name": "1 of 4 - Enema of the State",
+                          "type": "interiorStory"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/stories/2492",
+                          "name": "2 of 4 - Enema of the State",
+                          "type": "interiorStory"
+                        }
+                      ],
+                      "returned": 20
+                    },
+                    "events": {
+                      "available": 9,
+                      "collectionURI": "http://gateway.marvel.com/v1/public/characters/1009268/events",
+                      "items": [
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/events/227",
+                          "name": "Age of Apocalypse"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/events/238",
+                          "name": "Civil War"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/events/318",
+                          "name": "Dark Reign"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/events/251",
+                          "name": "House of M"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/events/298",
+                          "name": "Messiah War"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/events/269",
+                          "name": "Secret Invasion"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/events/309",
+                          "name": "Shattered Heroes"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/events/308",
+                          "name": "X-Men: Regenesis"
+                        },
+                        {
+                          "resourceURI": "http://gateway.marvel.com/v1/public/events/306",
+                          "name": "X-Men: Schism"
+                        }
+                      ],
+                      "returned": 9
+                    },
+                    "urls": [
+                      {
+                        "type": "detail",
+                        "url": "http://marvel.com/characters/12/deadpool?utm_campaign=apiRef&utm_source=67c5ca0d9914a3129576e05198ef6960"
+                      },
+                      {
+                        "type": "wiki",
+                        "url": "http://marvel.com/universe/Deadpool_(Wade_Wilson)?utm_campaign=apiRef&utm_source=67c5ca0d9914a3129576e05198ef6960"
+                      },
+                      {
+                        "type": "comiclink",
+                        "url": "http://marvel.com/comics/characters/1009268/deadpool?utm_campaign=apiRef&utm_source=67c5ca0d9914a3129576e05198ef6960"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+            </xmp>
+
+          </div>
+</br>
+</br>
+You're probably thinking that is a lot of information. What does it all mean?
+well lets break it down so that when you are parsing this information in your javascript you will know what to look for.
+</br>
+<xmp>
+  "code": 200,
+  "status": "Ok",
+  "copyright": "© 2016 MARVEL",
+  "attributionText": "Data provided by Marvel. © 2016 MARVEL",
+  "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2016 MARVEL</a>",
+
+</xmp>
+</br>
+   <b>code</b> is the code that is given to the charater.
+</br>
+   <b>status</b> is if the request from the server was sucessful.
+</br>
+   <b>copyright</b> is who is the copyright holder of the charater. This will almost always be MARVEL.
+</br>
+   <b>attribution</b> text is where the data is provided and who owns the copyright.
+
+</p>
+        </section>
+
+    </section>
+
+</body>
+
+</html>
