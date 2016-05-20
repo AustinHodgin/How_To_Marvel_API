@@ -57,3 +57,13 @@ img {
     border-color: rgb(0, 0, 0);
     border-width: 3px;
 }
+
+xmp{
+  width: 500px;
+  height: 400px;
+  overflow: auto;
+  line-height: 2em;
+  padding: 5px;
+
+
+}

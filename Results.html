@@ -19,6 +19,7 @@
             <li> <a href="Index.html"> Introduction </a> </li>
             <li> <a href="API_KEYS.html">API Keys</a> </li>
             <li> <a href="Results.html">Results</a></li>
+            <li><a href="Requests.html">Requests</a></li>
             <li><a href="Images.html">Images</a></li>
         </ul>
     </section>
@@ -81,7 +82,7 @@
 
 
           <div class = " JSON_File">
-            <xmp>
+            <xmp class = "full">
               "code": 200,
               "status": "Ok",
               "copyright": "© 2016 MARVEL",
@@ -452,14 +453,14 @@
 </br>
 </br>
 You're probably thinking that is a lot of information. What does it all mean?
-well lets break it down so that when you are parsing this information in your javascript you will know what to look for.
+well lets break it down a little bit so that when you are parsing this information in your javascript you will know what to look for.
 </br>
 <xmp>
   "code": 200,
   "status": "Ok",
   "copyright": "© 2016 MARVEL",
   "attributionText": "Data provided by Marvel. © 2016 MARVEL",
-  "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2016 MARVEL</a>",
+  "attributionHTML": "<a href="http://marvel.com\">Data provided by Marvel. © 2016 MARVEL</a>",
 
 </xmp>
 </br>
@@ -470,7 +471,27 @@ well lets break it down so that when you are parsing this information in your ja
    <b>copyright</b> is who is the copyright holder of the charater. This will almost always be MARVEL.
 </br>
    <b>attribution</b> text is where the data is provided and who owns the copyright.
-
+</br>
+  <xmp>
+    "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009268",
+    "comics": {
+      "available": 416,
+      "collectionURI": "http://gateway.marvel.com/v1/public/characters/1009268/comics",
+      "items": [
+        {
+          "resourceURI": "http://gateway.marvel.com/v1/public/comics/41112",
+          "name": "5 Ronin (Hardcover)"
+        },
+        {
+          "resourceURI": "http://gateway.marvel.com/v1/public/comics/36160",
+          "name": "5 Ronin (2010) #5"
+        },
+  </xmp>
+</br>
+</br>
+  This section of code is talking abaout a serise that the charater was in. In this example
+  dead pool was in 5 ronin 2010 issuse #5. This is how all the information will be layed out. I will let you go through and try and figure out all of the rest of it.
+  In the next section we will go over how to make these requests. You can find that <a href="Requests.html">here</a>.
 </p>
         </section>
 
